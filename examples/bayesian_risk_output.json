@@ -1,0 +1,13 @@
+{
+  "engine": "beta_binomial_risk_cpu",
+  "observed_failures": 3,
+  "trials": 40,
+  "posterior_alpha": 4.0,
+  "posterior_beta": 46.0,
+  "posterior_mean_failure_rate": 0.08,
+  "posterior_stddev": 0.037988646394705367,
+  "risk_threshold": 0.1,
+  "probability_true_failure_rate_exceeds_threshold": 0.2647659539626636,
+  "decision": "within_threshold",
+  "note": "Bayesian estimate from test evidence; not a guarantee of future field reliability."
+}

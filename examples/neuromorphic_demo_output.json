@@ -1,0 +1,70 @@
+{
+  "lif": {
+    "engine": "lif_event_simulator_cpu",
+    "steps": 17,
+    "spike_times": [
+      4,
+      7,
+      11,
+      16
+    ],
+    "spike_count": 4,
+    "membrane_trace": [
+      0.0,
+      0.0,
+      0.2,
+      0.47,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.885,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "note": "Software simulation of a simple spiking neuron; no neuromorphic chip required."
+  },
+  "burst_analysis": {
+    "engine": "event_burst_detector_cpu",
+    "windows": 6,
+    "bursts": [
+      {
+        "start": 1,
+        "end": 4,
+        "events": 3
+      },
+      {
+        "start": 2,
+        "end": 5,
+        "events": 3
+      },
+      {
+        "start": 7,
+        "end": 10,
+        "events": 3
+      },
+      {
+        "start": 8,
+        "end": 11,
+        "events": 3
+      },
+      {
+        "start": 9,
+        "end": 12,
+        "events": 4
+      },
+      {
+        "start": 10,
+        "end": 13,
+        "events": 3
+      }
+    ],
+    "note": "Illustrative event-based detector; tune thresholds on representative product data."
+  }
+}

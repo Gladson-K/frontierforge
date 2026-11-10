@@ -1,0 +1,34 @@
+{
+  "engine": "qaoa_statevector_cpu",
+  "qubits": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "p": 1,
+  "gamma": 0.3141592653589793,
+  "beta": 0.3141592653589793,
+  "expected_cut": 3.0856564015091315,
+  "most_likely_bitstring_q0_first": "1010",
+  "sampled_bitstring_cut": 4,
+  "statevector_dimension": 16,
+  "note": "Exact statevector simulation, not execution on quantum hardware."
+}
