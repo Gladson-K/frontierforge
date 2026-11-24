@@ -1,0 +1,18 @@
+{
+  "engine": "cellular_automata_cpu",
+  "grid_size": 12,
+  "steps": 30,
+  "noise_probability": 0.15,
+  "noise_flips": 17,
+  "underlying_truth": 1,
+  "initial_agreement": 0.5833333333333334,
+  "initial_disagreement": 0.41666666666666663,
+  "final_value": 1,
+  "final_agreement": 0.7916666666666666,
+  "consensus_reached": false,
+  "consensus_step": null,
+  "local_majority_correct": true,
+  "centralized_global_mean_threshold_value": 1,
+  "centralized_global_mean_threshold_agreement": 0.5833333333333334,
+  "note": "Local majority CA reaches agreement using only neighbourhood reads; the baseline needs all readings for a global mean. Illustrative only."
+}

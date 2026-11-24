@@ -1,0 +1,105 @@
+{
+  "engine": "reversible_logic_cpu",
+  "wires": 4,
+  "gate_counts": {
+    "TOFFOLI": 2,
+    "CNOT": 2
+  },
+  "gate_count": 4,
+  "circuit_depth": 4,
+  "ancilla_bits": 1,
+  "garbage_bits": 2,
+  "truth_table": [
+    {
+      "a": 0,
+      "b": 0,
+      "cin": 0,
+      "sum": 0,
+      "carry": 0,
+      "expected_sum": 0,
+      "expected_carry": 0,
+      "pass": true
+    },
+    {
+      "a": 0,
+      "b": 0,
+      "cin": 1,
+      "sum": 1,
+      "carry": 0,
+      "expected_sum": 1,
+      "expected_carry": 0,
+      "pass": true
+    },
+    {
+      "a": 0,
+      "b": 1,
+      "cin": 0,
+      "sum": 1,
+      "carry": 0,
+      "expected_sum": 1,
+      "expected_carry": 0,
+      "pass": true
+    },
+    {
+      "a": 0,
+      "b": 1,
+      "cin": 1,
+      "sum": 0,
+      "carry": 1,
+      "expected_sum": 0,
+      "expected_carry": 1,
+      "pass": true
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "cin": 0,
+      "sum": 1,
+      "carry": 0,
+      "expected_sum": 1,
+      "expected_carry": 0,
+      "pass": true
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "cin": 1,
+      "sum": 0,
+      "carry": 1,
+      "expected_sum": 0,
+      "expected_carry": 1,
+      "pass": true
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "cin": 0,
+      "sum": 0,
+      "carry": 1,
+      "expected_sum": 0,
+      "expected_carry": 1,
+      "pass": true
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "cin": 1,
+      "sum": 1,
+      "carry": 1,
+      "expected_sum": 1,
+      "expected_carry": 1,
+      "pass": true
+    }
+  ],
+  "truth_table_pass": true,
+  "bijective": true,
+  "inverse_roundtrip_pass": true,
+  "landauer": {
+    "temperature_kelvin": 300.15,
+    "energy_per_erased_bit_joules": 2.8724143745212633e-21,
+    "irreversible_adder_min_bits_erased": 1,
+    "irreversible_adder_min_energy_joules": 2.8724143745212633e-21,
+    "reversible_adder_min_energy_joules": 0.0
+  },
+  "note": "Logical reversibility is exact here; Landauer values are theoretical lower bounds for bit erasure, not measured device energy."
+}

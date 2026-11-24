@@ -1,0 +1,21 @@
+{
+  "engine": "photonic_mzi_mesh_cpu",
+  "ports": 4,
+  "classes": 2,
+  "mesh_layers": 4,
+  "mzis": 6,
+  "phase_parameters": 12,
+  "train_samples": 60,
+  "test_samples": 60,
+  "train_accuracy": 1.0,
+  "test_accuracy": 1.0,
+  "baseline_intensity_nearest_centroid_accuracy": 0.45,
+  "coherent_mesh_beats_intensity_baseline": true,
+  "mesh_unitarity_error": 0.0,
+  "mesh_vs_dense_matmul_max_deviation": 0.0,
+  "wavelength_nm": 1550.0,
+  "photon_energy_joules": 1.2815779723541474e-19,
+  "estimated_complex_ops_per_inference": 12,
+  "energy_per_inference_1_photon_per_op_joules": 1.5378935668249768e-18,
+  "note": "Coherent-interference simulation; the synthetic classes differ only in optical phase. Energy figures are single-photon heuristics, not measured hardware power."
+}
