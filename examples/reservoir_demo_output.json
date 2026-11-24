@@ -1,0 +1,19 @@
+{
+  "engine": "reservoir_computing_cpu",
+  "units": 40,
+  "connectivity": 0.15,
+  "spectral_radius_target": 0.9,
+  "spectral_radius_estimate": 0.9799420350461011,
+  "leak": 0.3,
+  "washout": 50,
+  "series_length": 300,
+  "train_fraction": 0.6,
+  "test_points": 100,
+  "esn_nmse": 0.05493122603484217,
+  "ar_order": 5,
+  "ar_nmse": 0.0028452301163674676,
+  "persistence_nmse": 3.133119614835914,
+  "esn_beats_persistence": true,
+  "esn_beats_ar": false,
+  "note": "Only the linear readout is trained; reservoir weights are fixed and seeded. Comparison is on one synthetic series, not a field dataset."
+}

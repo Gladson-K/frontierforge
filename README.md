@@ -1,14 +1,10 @@
 # FrontierForge — Frontier Computation Workbench
 
-**Version 1.0 | CPU-only | Pure Python reference implementations**
+**Version 2.0.0 | CPU-only | Pure Python reference implementations**
 
-FrontierForge is a separate experimental workspace for exploring computational paradigms that are not yet routine in mainstream application engineering. It turns three ideas into runnable, inspectable CPU simulations and shows how their outputs can inform real product decisions:
+FrontierForge is a separate experimental workspace for exploring computational paradigms that are not yet routine in mainstream application engineering. V1 covered quantum-classical optimization, neuromorphic event streams and Bayesian release risk. V2 adds four CPU simulations: coherent photonic meshes, cellular automata, reversible logic and reservoir computing.
 
-1. **Hybrid quantum-classical optimization** — QAOA-style statevector simulation for small product architecture/resource-allocation graphs.
-2. **Neuromorphic/event-based computing** — leaky-integrate-and-fire (LIF) neurons and event-burst detection for sparse sensor/telemetry streams.
-3. **Probabilistic computing for engineering decisions** — Bayesian Beta-Binomial inference to quantify uncertainty in test failure rates and release risk.
-
-This is not a quantum computer, neuromorphic chip, or production reliability certification. All V1 engines execute locally on a conventional CPU. The quantum simulator is exponential in qubit count and intentionally limited to 10 qubits.
+All engines are local, deterministic where seeded, and produce JSON-serializable dictionaries. This is not quantum hardware, optical hardware, a neuromorphic chip, a validated reliability model, or evidence of an advantage. The quantum simulator remains limited to 10 qubits.
 
 ## Quick start
 
@@ -18,31 +14,40 @@ python3 --version                 # Python 3.10+
 .venv/bin/python -m frontierforge.cli quantum-demo
 .venv/bin/python -m frontierforge.cli neuro-demo
 .venv/bin/python -m frontierforge.cli risk --failures 3 --trials 40
+.venv/bin/python -m frontierforge.cli photonic-demo
+.venv/bin/python -m frontierforge.cli ca-demo
+.venv/bin/python -m frontierforge.cli reversible-demo
+.venv/bin/python -m frontierforge.cli reservoir-demo
 .venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python tests/run_and_report.py --docker
 ```
 
 No external Python packages are required. Run from this directory. Windows users can use `py -m venv .venv` and `.venv\\Scripts\\python.exe -m frontierforge.cli ...`.
 
-## What each engine demonstrates
+## Engines
 
-### Quantum optimization
+### V1 — included unchanged
 
-`quantum-demo` builds a small MaxCut graph, prepares a uniform state, applies a p=1 QAOA cost unitary and mixer, and computes the exact statevector expectation. A deterministic angle grid searches for a good parameter pair. This is a small, auditable simulator—not evidence of quantum advantage. Increase `--qubits` cautiously; state memory grows as `2**n`.
+- `quantum-demo`: p=1 QAOA MaxCut statevector simulation with deterministic angle search.
+- `neuro-demo`: leaky-integrate-and-fire neuron and sliding-window burst detection.
+- `risk`: Beta-Binomial posterior mean, spread and tail probability for release risk.
 
-### Neuromorphic/event computation
+### V2 — new in 2.0.0
 
-`neuro-demo` feeds a sparse event stream into a LIF neuron and a sliding-window event-burst detector. This demonstrates temporal integration and event-driven processing without requiring dense frame-by-frame inference or neuromorphic hardware.
+- `photonic-demo`: Clements-style MZI mesh propagating complex amplitudes; a coherent classifier where intensity-only input features cannot separate the synthetic classes. Energy figures are labelled single-photon heuristics.
+- `ca-demo`: elementary 1D rules, 2D majority and Game of Life; a local-only load-consensus demo compared with a global-mean threshold baseline that assumes centralised readings.
+- `reversible-demo`: self-inverse gate circuits, a four-gate reversible full adder, truth-table and bijectivity checks, and a Landauer lower bound for irreversible erasure.
+- `reservoir-demo`: seeded echo-state network with pure-Python Cholesky ridge readout, compared against AR(5) and persistence on a synthetic maintenance trace.
 
-### Bayesian product-risk computation
+## Testing and verification
 
-`risk` updates a Beta prior with observed pass/fail evidence, then numerically integrates the posterior tail probability that the true failure rate exceeds a specified threshold. It makes uncertainty explicit instead of treating a small test sample as certainty.
+- Focused engine tests: `tests/test_photonic.py`, `tests/test_cellular.py`, `tests/test_reversible.py`, `tests/test_reservoir.py`.
+- Full suite: `python -m unittest discover -s tests -v`.
+- `tests/run_and_report.py` runs local tests, all CLI demos and optionally the eight Docker pipelines, then writes `docs/TEST-RESULTS.md` with full logs for every command and per-testcase statuses, including failures.
+- Docker has one image per use case plus a test image; see `docs/DOCKER.md`.
 
-## Suggested next steps
+## Governance and claims
 
-- Add Qiskit Aer / PennyLane / CUDA-Q adapters as optional backends; preserve CPU reference results for regression checks.
-- Add Lava/NIR adapters for interoperable spiking-network experiments.
-- Add data ingestion from test reports, telemetry and CI systems, with provenance and schema validation.
-- Add experiment tracking: inputs, seeds, algorithm version, runtime, output, confidence and reproducibility metadata.
-- Benchmark classical baselines before making any performance or advantage claims.
+Risk tier B: advisory experiments only. A named human reviews changes before merge; AI assistance and verification are recorded in `AI-USE.md` and the change description. Synthetic fixtures only; no personal, health, secret or restricted data is used. No quantum, photonic, energy, accuracy or safety advantage is claimed without measured evidence and review.
 
-See `docs/` for architecture, use cases, research notes and roadmap.
+See `docs/` for architecture, use cases, research notes, references, Docker pipelines, roadmap and recorded test results.
